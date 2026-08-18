@@ -8,10 +8,10 @@
 -- META   },
 -- META   "dependencies": {
 -- META     "warehouse": {
--- META       "default_warehouse": "b9e4f7ae-a6a9-8dcd-4856-d0aa8df7e81a",
+-- META       "default_warehouse": "cbe97f0f-af6b-be79-4b93-578fd2554691",
 -- META       "known_warehouses": [
 -- META         {
--- META           "id": "b9e4f7ae-a6a9-8dcd-4856-d0aa8df7e81a",
+-- META           "id": "cbe97f0f-af6b-be79-4b93-578fd2554691",
 -- META           "type": "Datawarehouse"
 -- META         }
 -- META       ]
