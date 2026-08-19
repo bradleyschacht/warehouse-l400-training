@@ -730,6 +730,19 @@ SELECT * FROM MySnapshot.dbo.nation
 
 SELECT * FROM dbo.nation
 
+-- Or recreate and load the table.
+/*
+CREATE TABLE dbo.nation
+    (
+        n_nationkey         INT             NOT NULL,
+        n_name              CHAR(25)        NOT NULL,
+        n_regionkey         INT             NOT NULL,
+        n_comment           VARCHAR(152)    NOT NULL
+    );
+
+COPY INTO dbo.nation FROM 'https://onelake.dfs.fabric.microsoft.com/85b41ed4-4132-46a9-bcea-0249ffe90a4d/fa0443a9-9a14-4752-b6b4-b859690c4481/Files/sampledata/nation/*.parquet'     WITH (FILE_TYPE = 'PARQUET');
+*/
+
 -- METADATA ********************
 
 -- META {
