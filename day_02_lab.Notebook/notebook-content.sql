@@ -33,6 +33,8 @@
 -- MARKDOWN ********************
 
 -- # 🛠️ Lab setup
+-- 
+-- Be sure to replace the workspace_id and lakehouse_id variables with the appropriate values for where your sample data is stored.
 
 -- CELL ********************
 
@@ -258,17 +260,15 @@ CREATE TABLE dbo.supplier
         s_comment           VARCHAR(101)    NOT NULL
     );
 
-
-COPY INTO dbo.lineitem_clustered        FROM 'https://scbradlstorage01.dfs.core.windows.net/sampledata/TPC-H/GB_300/Delta_VOrder_Disabled/lineitem/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - lineitem_clustered - COPY INTO');
-COPY INTO dbo.lineitem_clustered_bad    FROM 'https://scbradlstorage01.dfs.core.windows.net/sampledata/TPC-H/GB_300/Delta_VOrder_Disabled/lineitem/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - lineitem_clustered_bad - COPY INTO');
-COPY INTO dbo.customer                  FROM 'https://scbradlstorage01.dfs.core.windows.net/sampledata/TPC-H/GB_300/Delta_VOrder_Disabled/customer/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - customer - COPY INTO');
-COPY INTO dbo.nation                    FROM 'https://scbradlstorage01.dfs.core.windows.net/sampledata/TPC-H/GB_300/Delta_VOrder_Disabled/nation/*.parquet'     WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - nation - COPY INTO');
-COPY INTO dbo.orders                    FROM 'https://scbradlstorage01.dfs.core.windows.net/sampledata/TPC-H/GB_300/Delta_VOrder_Disabled/orders/*.parquet'     WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - orders - COPY INTO');
-COPY INTO dbo.part                      FROM 'https://scbradlstorage01.dfs.core.windows.net/sampledata/TPC-H/GB_300/Delta_VOrder_Disabled/part/*.parquet'       WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - part - COPY INTO');
-COPY INTO dbo.partsupp                  FROM 'https://scbradlstorage01.dfs.core.windows.net/sampledata/TPC-H/GB_300/Delta_VOrder_Disabled/partsupp/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - partsupp - COPY INTO');
-COPY INTO dbo.region                    FROM 'https://scbradlstorage01.dfs.core.windows.net/sampledata/TPC-H/GB_300/Delta_VOrder_Disabled/region/*.parquet'     WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - region - COPY INTO');
-COPY INTO dbo.supplier                  FROM 'https://scbradlstorage01.dfs.core.windows.net/sampledata/TPC-H/GB_300/Delta_VOrder_Disabled/supplier/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - supplier - COPY INTO');
-
+COPY INTO dbo.lineitem_clustered        FROM 'https://onelake.dfs.fabric.microsoft.com/85b41ed4-4132-46a9-bcea-0249ffe90a4d/fa0443a9-9a14-4752-b6b4-b859690c4481/Files/sampledata/lineitem/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - lineitem_clustered - COPY INTO');
+COPY INTO dbo.lineitem_clustered_bad    FROM 'https://onelake.dfs.fabric.microsoft.com/85b41ed4-4132-46a9-bcea-0249ffe90a4d/fa0443a9-9a14-4752-b6b4-b859690c4481/Files/sampledata/lineitem/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - lineitem_clustered_bad - COPY INTO');
+COPY INTO dbo.customer                  FROM 'https://onelake.dfs.fabric.microsoft.com/85b41ed4-4132-46a9-bcea-0249ffe90a4d/fa0443a9-9a14-4752-b6b4-b859690c4481/Files/sampledata/customer/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - customer - COPY INTO');
+COPY INTO dbo.nation                    FROM 'https://onelake.dfs.fabric.microsoft.com/85b41ed4-4132-46a9-bcea-0249ffe90a4d/fa0443a9-9a14-4752-b6b4-b859690c4481/Files/sampledata/nation/*.parquet'     WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - nation - COPY INTO');
+COPY INTO dbo.orders                    FROM 'https://onelake.dfs.fabric.microsoft.com/85b41ed4-4132-46a9-bcea-0249ffe90a4d/fa0443a9-9a14-4752-b6b4-b859690c4481/Files/sampledata/orders/*.parquet'     WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - orders - COPY INTO');
+COPY INTO dbo.part                      FROM 'https://onelake.dfs.fabric.microsoft.com/85b41ed4-4132-46a9-bcea-0249ffe90a4d/fa0443a9-9a14-4752-b6b4-b859690c4481/Files/sampledata/part/*.parquet'       WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - part - COPY INTO');
+COPY INTO dbo.partsupp                  FROM 'https://onelake.dfs.fabric.microsoft.com/85b41ed4-4132-46a9-bcea-0249ffe90a4d/fa0443a9-9a14-4752-b6b4-b859690c4481/Files/sampledata/partsupp/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - partsupp - COPY INTO');
+COPY INTO dbo.region                    FROM 'https://onelake.dfs.fabric.microsoft.com/85b41ed4-4132-46a9-bcea-0249ffe90a4d/fa0443a9-9a14-4752-b6b4-b859690c4481/Files/sampledata/region/*.parquet'     WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - region - COPY INTO');
+COPY INTO dbo.supplier                  FROM 'https://onelake.dfs.fabric.microsoft.com/85b41ed4-4132-46a9-bcea-0249ffe90a4d/fa0443a9-9a14-4752-b6b4-b859690c4481/Files/sampledata/supplier/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - supplier - COPY INTO');
 
 select top 10
     l_orderkey,
@@ -319,127 +319,6 @@ order by
     o_orderdate
 option (label = 'Lab Prep Query - Clustering: Enabled - Bad');
 
-
-DECLARE @loops_to_run INT = 4
-DECLARE @loop INT = 1
-
-WHILE @loop <= @loops_to_run
-BEGIN
-
-    select
-        l_returnflag,
-        l_linestatus,
-        sum(l_quantity) as sum_qty,
-        sum(l_extendedprice) as sum_base_price,
-        sum(l_extendedprice * (1 - l_discount)) as sum_disc_price,
-        sum(l_extendedprice * (1 - l_discount) * (1 + l_tax)) as sum_charge,
-        avg(l_quantity) as avg_qty,
-        avg(l_extendedprice) as avg_price,
-        avg(l_discount) as avg_disc,
-    count_big(*) as count_order /* count(*) as count_order */
-    from
-        MyLakehouse.dbo.[lineitem_100_000010000]
-    where
-        l_shipdate <=  dateadd(day, -88, '1998-12-01') /*  l_shipdate <= date '1998-12-01' - interval '88' day (3)  */
-    group by
-        l_returnflag,
-        l_linestatus
-    order by
-        l_returnflag,
-        l_linestatus
-    option (label = 'Lakehouse Optimization - lineitem_100_000010000');
-    select
-        l_returnflag,
-        l_linestatus,
-        sum(l_quantity) as sum_qty,
-        sum(l_extendedprice) as sum_base_price,
-        sum(l_extendedprice * (1 - l_discount)) as sum_disc_price,
-        sum(l_extendedprice * (1 - l_discount) * (1 + l_tax)) as sum_charge,
-        avg(l_quantity) as avg_qty,
-        avg(l_extendedprice) as avg_price,
-        avg(l_discount) as avg_disc,
-    count_big(*) as count_order /* count(*) as count_order */
-    from
-        MyLakehouse.dbo.[lineitem_100_000050000]
-    where
-        l_shipdate <=  dateadd(day, -88, '1998-12-01') /*  l_shipdate <= date '1998-12-01' - interval '88' day (3)  */
-    group by
-        l_returnflag,
-        l_linestatus
-    order by
-        l_returnflag,
-        l_linestatus
-    option (label = 'Lakehouse Optimization - lineitem_100_000050000');
-    select
-        l_returnflag,
-        l_linestatus,
-        sum(l_quantity) as sum_qty,
-        sum(l_extendedprice) as sum_base_price,
-        sum(l_extendedprice * (1 - l_discount)) as sum_disc_price,
-        sum(l_extendedprice * (1 - l_discount) * (1 + l_tax)) as sum_charge,
-        avg(l_quantity) as avg_qty,
-        avg(l_extendedprice) as avg_price,
-        avg(l_discount) as avg_disc,
-    count_big(*) as count_order /* count(*) as count_order */
-    from
-        MyLakehouse.dbo.[lineitem_100_002000000]
-    where
-        l_shipdate <=  dateadd(day, -88, '1998-12-01') /*  l_shipdate <= date '1998-12-01' - interval '88' day (3)  */
-    group by
-        l_returnflag,
-        l_linestatus
-    order by
-        l_returnflag,
-        l_linestatus
-    option (label = 'Lakehouse Optimization - lineitem_100_002000000');
-    select
-        l_returnflag,
-        l_linestatus,
-        sum(l_quantity) as sum_qty,
-        sum(l_extendedprice) as sum_base_price,
-        sum(l_extendedprice * (1 - l_discount)) as sum_disc_price,
-        sum(l_extendedprice * (1 - l_discount) * (1 + l_tax)) as sum_charge,
-        avg(l_quantity) as avg_qty,
-        avg(l_extendedprice) as avg_price,
-        avg(l_discount) as avg_disc,
-    count_big(*) as count_order /* count(*) as count_order */
-    from
-        MyLakehouse.dbo.[lineitem_100_010000000]
-    where
-        l_shipdate <=  dateadd(day, -88, '1998-12-01') /*  l_shipdate <= date '1998-12-01' - interval '88' day (3)  */
-    group by
-        l_returnflag,
-        l_linestatus
-    order by
-        l_returnflag,
-        l_linestatus
-    option (label = 'Lakehouse Optimization - lineitem_100_010000000');
-    select
-        l_returnflag,
-        l_linestatus,
-        sum(l_quantity) as sum_qty,
-        sum(l_extendedprice) as sum_base_price,
-        sum(l_extendedprice * (1 - l_discount)) as sum_disc_price,
-        sum(l_extendedprice * (1 - l_discount) * (1 + l_tax)) as sum_charge,
-        avg(l_quantity) as avg_qty,
-        avg(l_extendedprice) as avg_price,
-        avg(l_discount) as avg_disc,
-    count_big(*) as count_order /* count(*) as count_order */
-    from
-        MyLakehouse.dbo.[lineitem_100_default]
-    where
-        l_shipdate <=  dateadd(day, -88, '1998-12-01') /*  l_shipdate <= date '1998-12-01' - interval '88' day (3)  */
-    group by
-        l_returnflag,
-        l_linestatus
-    order by
-        l_returnflag,
-        l_linestatus
-    option (label = 'Lakehouse Optimization - lineitem_100_default');
-
-SET @Loop = @Loop + 1
-END
-
 -- METADATA ********************
 
 -- META {
@@ -454,7 +333,7 @@ END
 -- CELL ********************
 
 TRUNCATE TABLE dbo.lineitem;
-COPY INTO dbo.lineitem FROM 'https://scbradlstorage01.dfs.core.windows.net/sampledata/TPC-H/GB_300/Delta_VOrder_Disabled/lineitem/*.parquet' WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - lineitem - COPY INTO');
+COPY INTO dbo.lineitem FROM 'https://onelake.dfs.fabric.microsoft.com/85b41ed4-4132-46a9-bcea-0249ffe90a4d/fa0443a9-9a14-4752-b6b4-b859690c4481/Files/sampledata/lineitem/*.parquet' WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - lineitem - COPY INTO');
 
 -- METADATA ********************
 
@@ -485,7 +364,7 @@ TRUNCATE TABLE dbo.lineitem_openrowset;
 INSERT INTO dbo.lineitem_openrowset
 SELECT
     *
-FROM OPENROWSET(BULK 'https://scbradlstorage01.dfs.core.windows.net/sampledata/TPC-H/GB_300/Delta_VOrder_Disabled/lineitem/*.parquet')
+FROM OPENROWSET(BULK 'https://onelake.dfs.fabric.microsoft.com/85b41ed4-4132-46a9-bcea-0249ffe90a4d/fa0443a9-9a14-4752-b6b4-b859690c4481/Files/sampledata/lineitem/*.parquet')
 OPTION (LABEL = 'Load - lineitem - OPENROWSET');
 
 -- METADATA ********************
@@ -666,7 +545,7 @@ option (label = 'Sample Query: 3');
 
 -- #### 📸 Warehouse snapshots
 -- 
--- ❗ Begin by creating a snapshot of the data warehouse. To do this, navigate back to the workspace item list, open the warehouse, and go to manage snapshots on the ribbon. 
+-- ❗ Begin by creating a snapshot of the data warehouse. To do this, navigate back to the workspace item list, open the warehouse, and go to manage snapshots on the ribbon. Be sure to give the snapshot the name **MySnapshot** to avoid errors in the cells below.
 
 -- CELL ********************
 
@@ -815,6 +694,7 @@ DROP TABLE dbo.nation
 
 -- CELL ********************
 
+-- Note: This will fail!
 -- Try time travel.
 
 DECLARE @BeforeTheAccident VARCHAR(23) = (SELECT CONVERT(VARCHAR(23), DATEADD(MINUTE, -5, GETDATE()), 126))
@@ -829,6 +709,7 @@ EXEC ('SELECT COUNT(*) FROM dbo.nation OPTION (FOR TIMESTAMP AS OF ''' + @Before
 
 -- CELL ********************
 
+-- Note: This will fail!
 -- Go get the table from the snapshot.
 
 INSERT INTO dbo.nation
@@ -1112,7 +993,7 @@ ORDER BY
 
 -- MARKDOWN ********************
 
--- First, let's break up the compute and make sure our large ETL processesa and reporting have enough resources to complete in their allotted amount of time using custom SQL pools. This can be done through code or through the workspace settings. 
+-- First, let's break up the compute and make sure our large ETL processes and reporting have enough resources to complete in their allotted amount of time using custom SQL pools. This can be done through code or through the workspace settings. 
 
 -- MARKDOWN ********************
 
@@ -1120,13 +1001,14 @@ ORDER BY
 
 -- MARKDOWN ********************
 
--- Before proceeding, be sure to change the kernel to **Spark** -> **PySpark (Python)** on the ribbon.
+-- Before proceeding, be sure to change the kernel to **Python** -> **Python** on the ribbon.
 
 -- CELL ********************
 
 import requests
 import json
-from notebookutils import mssparkutils
+import sempy.fabric as fabric
+from sempy.fabric import FabricRestClient
 import struct
 import itertools
 import pyodbc
@@ -1138,7 +1020,7 @@ import pandas as pd
 
 -- META {
 -- META   "language": "python",
--- META   "language_group": "synapse_pyspark"
+-- META   "language_group": "jupyter_python"
 -- META }
 
 -- MARKDOWN ********************
@@ -1147,12 +1029,16 @@ import pandas as pd
 
 -- CELL ********************
 
-# Get the current workspace ID from the runtime context
-workspace_id = mssparkutils.runtime.context.get('currentWorkspaceId') 
+# Get the current workspace ID
+workspace_id = str(fabric.resolve_workspace_id()) 
+
+# Use SemPy's Fabric REST client
+client = FabricRestClient()
 
 # Prepare the API endpoint to retrieve the SQL pools configuration for the workspace
-url = f'https://api.fabric.microsoft.com/v1/workspaces/{workspace_id}/warehouses/sqlPoolsConfiguration'
-response = requests.request(method='get', url=url, headers={'Authorization': f'Bearer {mssparkutils.credentials.getToken("pbi")}'})
+response = client.get(
+    f"/v1/workspaces/{workspace_id}/warehouses/sqlPoolsConfiguration?beta=true"
+)
 
 # If the request is successful, pretty-print the JSON response; otherwise, print the error text
 if response.status_code == 200:
@@ -1164,7 +1050,7 @@ else:
 
 -- META {
 -- META   "language": "python",
--- META   "language_group": "synapse_pyspark"
+-- META   "language_group": "jupyter_python"
 -- META }
 
 -- MARKDOWN ********************
@@ -1217,12 +1103,17 @@ body = {
   ] 
 }
 
-# Retrieve the current workspace ID from the Spark runtime context
-workspace_id = mssparkutils.runtime.context.get('currentWorkspaceId') 
+# Retrieve the current workspace ID
+workspace_id = str(fabric.resolve_workspace_id())
+
+# Use SemPy's Fabric REST client
+client = FabricRestClient()
 
 # Construct the API endpoint for updating the SQL pools configuration in the workspace
-url = f'https://api.fabric.microsoft.com/v1/workspaces/{workspace_id}/warehouses/sqlPoolsConfiguration'
-response = requests.request(method='patch', url=url, json=body, headers={'Authorization': f'Bearer {notebookutils.credentials.getToken("pbi")}'})
+response = client.patch(
+    f"/v1/workspaces/{workspace_id}/warehouses/sqlPoolsConfiguration?beta=true",
+    json=body
+)
 
 # Output the result: print a success message or the error text
 if response.status_code == 200:
@@ -1235,7 +1126,7 @@ else:
 
 -- META {
 -- META   "language": "python",
--- META   "language_group": "synapse_pyspark"
+-- META   "language_group": "jupyter_python"
 -- META }
 
 -- MARKDOWN ********************
@@ -1246,25 +1137,34 @@ else:
 
 -- CELL ********************
 
-# Retrieve the current workspace and tenant IDs from Spark runtime context and Spark configuration
-workspace_id = mssparkutils.runtime.context.get('currentWorkspaceId') 
-tenant_id = spark.conf.get('trident.tenant.id')
+# Get token using Python NotebookUtils
+token = notebookutils.credentials.getToken("pbi")
 
-# Build the server name for the warehouse/sql endpoint
-sql_endpoint=f'''{base64.b32encode(uuid.UUID(tenant_id).bytes_le).decode("utf-8").lower().strip("=")}-{base64.b32encode(uuid.UUID(workspace_id).bytes_le).decode("utf-8").lower().strip("=")}.datawarehouse.fabric.microsoft.com'''
+# Get current workspace ID using SemPy
+workspace_id = str(fabric.resolve_workspace_id())
 
-warehouse_name='MyWarehouse'
+# Get tenant ID from the token claims instead of spark.conf
+payload = token.split(".")[1]
+payload += "=" * (-len(payload) % 4)
+claims = json.loads(base64.urlsafe_b64decode(payload))
+tenant_id = claims["tid"]
 
-token = mssparkutils.credentials.getToken("pbi")
+# Build the Fabric SQL endpoint server name
+tenant_part = base64.b32encode(uuid.UUID(tenant_id).bytes_le).decode("utf-8").lower().strip("=")
+workspace_part = base64.b32encode(uuid.UUID(workspace_id).bytes_le).decode("utf-8").lower().strip("=")
 
-# Convert the token to bytes and interleave with zeros to build Azure AD token structure for ODBC
+sql_endpoint = f"{tenant_part}-{workspace_part}.datawarehouse.fabric.microsoft.com"
+
+warehouse_name = "day_02_warehouse"
+
+# Build Azure AD token structure for ODBC
 value = bytes(token, "UTF-8")
 encoded_bytes = bytes(itertools.chain.from_iterable(zip(value, itertools.repeat(0))))
 tokenstruct = struct.pack("<i", len(encoded_bytes)) + encoded_bytes
 
-# Build the ODBC connection string for SQL Server driver (Windows authentication and database selection)
+# Build the connection string. Notice that no app name is included.
 connection_string = (
-    f"DRIVER={{ODBC Driver 18 for SQL Server}};"
+    "DRIVER={ODBC Driver 18 for SQL Server};"
     f"SERVER={sql_endpoint};"
     f"Database={warehouse_name}"
 )
@@ -1317,16 +1217,7 @@ with pyodbc.connect(connection_string, attrs_before = { 1256:tokenstruct }) as c
     cursor.close()
 conn.close()
 
-
-
-
-
-
-
-
-
-
-# Build the ODBC connection string for SQL Server driver (Windows authentication and database selection)
+# Build the connection string. Notice that no app name is "Reports".
 connection_string = (
     f"DRIVER={{ODBC Driver 18 for SQL Server}};"
     f"SERVER={sql_endpoint};"
@@ -1386,7 +1277,7 @@ conn.close()
 
 -- META {
 -- META   "language": "python",
--- META   "language_group": "synapse_pyspark"
+-- META   "language_group": "jupyter_python"
 -- META }
 
 -- MARKDOWN ********************
@@ -1396,25 +1287,30 @@ conn.close()
 -- The following code sample could be used to reset the workspace back to the default split of SELECT/NONSELECT.
 -- 
 -- ```python
---     body = { 
+--   body = { 
 --       # Disable custom SQL pools
 --       "customSQLPoolsEnabled": False, 
 --       # clear the configuration
 --       "customSQLPools": [] 
---     } 
+--   } 
 -- 
---     # Get the current workspace ID from the runtime context
---     workspace_id = mssparkutils.runtime.context.get('currentWorkspaceId') 
+--   # Retrieve the current workspace ID
+--   workspace_id = str(fabric.resolve_workspace_id())
 -- 
---     # Prepare the API endpoint to retrieve the SQL pools configuration for the workspace
---     url = f'https://api.fabric.microsoft.com/v1/workspaces/{workspace_id}/warehouses/sqlPoolsConfiguration'
---     response = requests.request(method='get', url=url, headers={'Authorization': f'Bearer {mssparkutils.credentials.getToken("pbi")}'})
+--   # Use SemPy's Fabric REST client
+--   client = FabricRestClient()
 -- 
---     # If the request is successful, print a success note; otherwise, print the error text
---     if response.status_code == 200:
---         print("SQL Custom Pools disabled.")
---     else:
---         print(response.text)
+--   # Construct the API endpoint for updating the SQL pools configuration in the workspace
+--   response = client.patch(
+--       f"/v1/workspaces/{workspace_id}/warehouses/sqlPoolsConfiguration?beta=true",
+--       json=body
+--   )
+-- 
+--   # Output the result: print a success message or the error text
+--   if response.status_code == 200:
+--       print("SQL Custom Pools disabled.")
+--   else:
+--       print(response.text)
 -- ```
 
 -- MARKDOWN ********************
@@ -1612,7 +1508,7 @@ ORDER BY
 
 -- MARKDOWN ********************
 
--- Using query insights, explore the time and cost savings from the various clustering configurations.
+-- Using query insights, explore the query metrics from the various clustering configurations.
 
 -- CELL ********************
 
@@ -1698,11 +1594,14 @@ ORDER BY
 
 -- MARKDOWN ********************
 
--- #### 💲 Collecting query cost information
+-- #### 💲 Collecting query consumption information
 
 -- CELL ********************
 
--- Get the list of distributed statement ids to look up
+-- Identify the window of time during which you'd like to explore query activity. 
+DECLARE @window_start datetime2(7) = 'YYYY-MM-DD HH:MM:SS';
+DECLARE @window_end   datetime2(7) = DATEADD(second, 30, @window_start);
+
 SELECT
     UPPER(distributed_statement_id) AS distributed_statement_id,
     submit_time,
@@ -1721,13 +1620,11 @@ SELECT
     command
 FROM queryinsights.exec_requests_history
 WHERE
-    status = 'Succeeded'
-    AND (
-            label IN ('Sample Query: 2', 'Tuning - Clustering: Disabled', 'Tuning - Clustering: Enabled', 'Tuning - Clustering: Enabled - Bad')
-    )
+    start_time < @window_end
+    AND end_time > @window_start
 ORDER BY
-    label
-
+    label,
+    start_time;
 
 -- METADATA ********************
 
@@ -1735,10 +1632,6 @@ ORDER BY
 -- META   "language": "sql",
 -- META   "language_group": "sqldatawarehouse"
 -- META }
-
--- MARKDOWN ********************
-
--- Take a distributed_statement_id to look up in the timepoint detail of the capacity metrics report or use real-time events.
 
 -- MARKDOWN ********************
 
@@ -1751,171 +1644,107 @@ ORDER BY
 -- MARKDOWN ********************
 
 -- #### 🔄️ Metadata Sync
+-- 
+-- The SQL analytics endpoint automatically detects the change and updates its SQL metadata via a background process. You can also manually refresh SQL analytics endpoint metadata via the Fabric portal, REST API, or T-SQL stored procedure.
+-- 
+-- In May 2026, the new metadata sync for the SQL analytics endpoint was announced as a preview feature. You can enable the new metadata sync process, which applies only to new SQL analytics endpoints. The new metadata sync option works to keep the data available for querying within seconds of it landing in the lakehouse.
+-- 
+-- When you enable the new metadata sync, new SQL analytics endpoints in the workspace sync faster when refreshing changes from underlying tables. **Currently, existing SQL analytics endpoints in that workspace remain on the legacy version of metadata sync.**
+-- 
+-- 
+-- ##### Checking the status of a table
+-- If you're using the new version of the metadata sync, you can use dynamic management views (DMVs) to get details about the most recent update to the SQL analytics endpoint. Use the sys.dm_db_external_tables_log_status DMV to get details about the latest metadata sync.
+-- 
+-- ```sql
+-- SELECT * FROM sys.dm_db_external_tables_log_status;
+-- ```
+-- 
+-- ##### Refreshing tables
+-- 
+-- Use the API only if you have schema changes, such as adding or deleting tables or columns, or changing types of columns, and need to refresh the entire item. For data-only changes in a SQL analytics endpoint, use the sys.sp_dw_refresh_ext_table system stored procedure to update a specific table.
+-- 
+-- ###### Stored Procedure
+-- ```sql
+-- EXEC sys.sp_dw_refresh_ext_table @tablename = "table_name"
+-- ```
+-- 
+-- ###### API
+-- ```python
+-- import time
+-- import sempy.fabric as fabric
+-- from sempy.fabric import FabricRestClient
+-- 
+-- workspace_id = str(fabric.resolve_workspace_id())
+-- client = FabricRestClient()
+-- 
+-- response = client.get(f"/v1/workspaces/{workspace_id}/sqlEndpoints")
+-- response.raise_for_status()
+-- 
+-- sql_endpoints = response.json()["value"]
+-- sql_endpoint_id = sql_endpoints[0]["id"]
+-- 
+-- payload = {
+--     "timeout": {
+--         "timeUnit": "Seconds",
+--         "value": 60
+--     }
+-- }
+-- 
+-- response = client.post(
+--     f"/v1/workspaces/{workspace_id}/sqlEndpoints/{sql_endpoint_id}/refreshMetadata",
+--     json=payload
+-- )
+-- 
+-- if response.status_code == 200:
+--     status = response.json()["value"]
+--     print("Refresh completed:")
+--     for table in status:
+--         print(table)
+-- 
+-- elif response.status_code == 202:
+--     retry_after = int(response.headers.get("Retry-After", 5))
+--     location = response.headers["Location"]
+-- 
+--     print("Refresh in progress...")
+--     time.sleep(retry_after)
+-- 
+--     while True:
+--         poll = client.get(location)
+-- 
+--         if poll.status_code == 200:
+--             result = poll.json()["value"]
+--             print("Refresh completed:")
+--             for table in result:
+--                 print(table)
+--             break
+-- 
+--         poll.raise_for_status()
+--         time.sleep(retry_after)
+-- 
+-- else:
+--     response.raise_for_status()
+-- ```
 
--- MARKDOWN ********************
-
--- Before proceeding, be sure to change the kernel to **Spark** -> **PySpark (Python)** on the ribbon.
-
--- CELL ********************
-
-import requests
-import json
-from notebookutils import mssparkutils
-import requests
-import time
-
-workspace_id = mssparkutils.runtime.context.get('currentWorkspaceId') 
-
-url = f'https://api.fabric.microsoft.com/v1/workspaces/{workspace_id}/sqlEndpoints'
-response = requests.request(method='get', url=url, headers={'Authorization': f'Bearer {mssparkutils.credentials.getToken("pbi")}'})
-
-sql_endpoint_id = response.json()["value"][0]["id"]
-
-fabric_api = "https://api.fabric.microsoft.com/v1"
-access_token = mssparkutils.credentials.getToken("pbi")
-
-headers = {
-    "Authorization": f"Bearer {access_token}",
-    "Content-Type": "application/json"
-}
-
-# Optional payload
-payload = {
-    "timeout": {
-        "timeUnit": "Seconds",
-        "value": 60
-    }
-}
-
-response = requests.post(
-    f"{fabric_api}/workspaces/{workspace_id}/sqlEndpoints/{sql_endpoint_id}/refreshMetadata",
-    headers=headers,
-    json=payload
-)
-
-# ✅ Synchronous completion
-if response.status_code == 200:
-    status = response.json()["value"]
-    print("✅ Refresh completed:")
-    for table in status:
-        print(table)
-
-# ✅ Asynchronous (LRO)
-elif response.status_code == 202:
-    operation_id = response.headers["x-ms-operation-id"]
-    retry_after = int(response.headers.get("Retry-After", 5))
-    location = response.headers["Location"]
-
-    print("🔄️ Refresh in progress...")
-    time.sleep(retry_after)
-
-    # Poll LRO status
-    while True:
-        poll = requests.get(location, headers=headers)
-        if poll.status_code == 200:
-            result = poll.json()["value"]
-            print("✅ Refresh completed:")
-            for table in result:
-                print(table)
-            break
-        time.sleep(retry_after)
-
-else:
-    response.raise_for_status()
-
--- METADATA ********************
-
--- META {
--- META   "language": "python",
--- META   "language_group": "synapse_pyspark"
--- META }
-
--- MARKDOWN ********************
-
--- Before proceeding, be sure to change the kernel to **T-SQL Analytics** -> **T-SQL** on the ribbon.
 
 -- MARKDOWN ********************
 
 -- #### 🎯 Optimizing lake file sizes
 
--- CELL ********************
-
-SELECT
-    COUNT(*) AS run_count,
-    FORMAT(
-        CASE
-            WHEN CHARINDEX('default', label, 0) > 0 THEN 0
-            ELSE CONVERT(INT, SUBSTRING(label, 39, 9))
-        END, '#,###'
-    ) AS rows_per_file,
-    label,
-    FORMAT(AVG(DATEDIFF(MILLISECOND, start_time, end_time))/1000., '#,###.#') AS avg_runtime,
-    FORMAT(MIN(DATEDIFF(MILLISECOND, start_time, end_time))/1000., '#,###.#') AS min_runtime,
-    FORMAT(MAX(DATEDIFF(MILLISECOND, start_time, end_time))/1000., '#,###.#') AS max_runtime,
-    AVG(data_scanned_remote_storage_mb + data_scanned_memory_mb + data_scanned_disk_mb) AS avg_data_scanned,
-    FORMAT(AVG(allocated_cpu_time_ms), '#,###') AS avg_cpu_time_ms
-FROM day_01_lakehouse.queryinsights.exec_requests_history
--- WHERE 
---     label IN ('Lakehouse Optimization - lineitem_100_000010000', 'Lakehouse Optimization - lineitem_100_000050000')    
-GROUP BY label
-ORDER BY AVG(DATEDIFF(MILLISECOND, start_time, end_time))/1000.
-
--- METADATA ********************
-
--- META {
--- META   "language": "sql",
--- META   "language_group": "sqldatawarehouse"
--- META }
-
 -- MARKDOWN ********************
 
--- **How do optimize file sizes**
+-- When the SQL analytics endpoint reads tables stored in a lakehouse, query performance depends heavily on the physical layout of the underlying Parquet files.
 -- 
--- These limits can be set before writing data or before running an OPTIMIZE command to improve performance of existing tables written with sub-optimal file sizes. 
+-- A large number of small Parquet files creates overhead and negatively affects query performance. File size is equally important. The SQL analytics endpoint performs best when Parquet files are large enough to minimize file handling overhead but not so large that they limit parallel scan efficiency.
 -- 
--- ```python
---     from delta.tables import DeltaTable
+-- The code in this section will require a lakehouse that has tables in it and you need to change the references to your lakehouse name. This code is provided as an example only at this time.  
 -- 
---     # Set the maximum number of records per file to 2 million rows during writes.
---     spark.conf.set("spark.sql.files.maxRecordsPerFile", 2000000)
+-- ##### Table Health Metrics
+-- The sys.sp_get_table_health_metrics system stored procedure returns file-level storage health metrics for a Lakehouse table. The result set includes histogram distributions for file sizes, row counts, and deleted row counts, along with anomaly detection that identifies common storage conditions that degrade query performance.
 -- 
---     # Set the maximum file size to approximately 4GB
---     spark.conf.set("spark.databricks.delta.optimize.maxFileSize", 400 * 1024 * 1024 * 1024)
--- 
---     # Run OPTIMIZE on existing tables.
---     spark.sql("OPTIMIZE myTable")
+-- ```sql
+-- EXEC sp_get_table_health_metrics @table_name = 'table_name'
 -- ```
--- 
--- Now, compare the optimized table performance to the non-optimized. 
 
--- CELL ********************
-
-SELECT
-    COUNT(*) AS run_count,
-    FORMAT(
-        CASE
-            WHEN CHARINDEX('default', label, 0) > 0 THEN 0
-            ELSE CONVERT(INT, SUBSTRING(label, 39, 9))
-        END, '#,###'
-    ) AS rows_per_file,
-    label,
-    FORMAT(AVG(DATEDIFF(MILLISECOND, start_time, end_time))/1000., '#,###.#') AS avg_runtime,
-    FORMAT(MIN(DATEDIFF(MILLISECOND, start_time, end_time))/1000., '#,###.#') AS min_runtime,
-    FORMAT(MAX(DATEDIFF(MILLISECOND, start_time, end_time))/1000., '#,###.#') AS max_runtime,
-    AVG(data_scanned_remote_storage_mb + data_scanned_memory_mb + data_scanned_disk_mb) AS avg_data_scanned,
-    FORMAT(AVG(allocated_cpu_time_ms), '#,###') AS avg_cpu_time_ms
-FROM day_01_lakehouse.queryinsights.exec_requests_history
-WHERE 
-    label IN ('Lakehouse Optimization - lineitem_100_000010000', 'Lakehouse Optimization - lineitem_100_000050000', 'Lakehouse Optimization - lineitem_100_default', 'Lakehouse Optimization - lineitem_100_002000000', 'Lakehouse Optimization - lineitem_100_010000000')
-GROUP BY label
-ORDER BY AVG(DATEDIFF(MILLISECOND, start_time, end_time))/1000.
-
--- METADATA ********************
-
--- META {
--- META   "language": "sql",
--- META   "language_group": "sqldatawarehouse"
--- META }
 
 -- MARKDOWN ********************
 
@@ -1957,7 +1786,7 @@ group by
 order by
     value desc
 option (label = 'SQL Audit Query: 1');
-
+GO
 
 
 select top 100
@@ -2004,6 +1833,7 @@ order by
     s_name,
     p_partkey
 option (label = 'SQL Audit Query: 2');
+GO
 
 -- METADATA ********************
 
