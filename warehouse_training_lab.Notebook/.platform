@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "Warehouse",
-    "displayName": "day_02_warehouse",
+    "type": "Notebook",
+    "displayName": "warehouse_training_lab",
     "description": ""
   },
   "config": {
     "version": "2.0",
-    "logicalId": "cbe97f0f-af6b-be79-4b93-578fd2554691"
+    "logicalId": "d1212910-3a83-a6ac-4994-149a4b4f30a5"
   }
 }
