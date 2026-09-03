@@ -260,15 +260,15 @@ CREATE TABLE dbo.supplier
         s_comment           VARCHAR(101)    NOT NULL
     );
 
-COPY INTO dbo.lineitem_clustered        FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/sampledata/lineitem/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - lineitem_clustered - COPY INTO');
-COPY INTO dbo.lineitem_clustered_bad    FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/sampledata/lineitem/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - lineitem_clustered_bad - COPY INTO');
-COPY INTO dbo.customer                  FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/sampledata/customer/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - customer - COPY INTO');
-COPY INTO dbo.nation                    FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/sampledata/nation/*.parquet'     WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - nation - COPY INTO');
-COPY INTO dbo.orders                    FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/sampledata/orders/*.parquet'     WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - orders - COPY INTO');
-COPY INTO dbo.part                      FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/sampledata/part/*.parquet'       WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - part - COPY INTO');
-COPY INTO dbo.partsupp                  FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/sampledata/partsupp/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - partsupp - COPY INTO');
-COPY INTO dbo.region                    FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/sampledata/region/*.parquet'     WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - region - COPY INTO');
-COPY INTO dbo.supplier                  FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/sampledata/supplier/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - supplier - COPY INTO');
+COPY INTO dbo.lineitem_clustered        FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/tpch_sf100/lineitem/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - lineitem_clustered - COPY INTO');
+COPY INTO dbo.lineitem_clustered_bad    FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/tpch_sf100/lineitem/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - lineitem_clustered_bad - COPY INTO');
+COPY INTO dbo.customer                  FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/tpch_sf100/customer/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - customer - COPY INTO');
+COPY INTO dbo.nation                    FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/tpch_sf100/nation/*.parquet'     WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - nation - COPY INTO');
+COPY INTO dbo.orders                    FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/tpch_sf100/orders/*.parquet'     WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - orders - COPY INTO');
+COPY INTO dbo.part                      FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/tpch_sf100/part/*.parquet'       WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - part - COPY INTO');
+COPY INTO dbo.partsupp                  FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/tpch_sf100/partsupp/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - partsupp - COPY INTO');
+COPY INTO dbo.region                    FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/tpch_sf100/region/*.parquet'     WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - region - COPY INTO');
+COPY INTO dbo.supplier                  FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/tpch_sf100/supplier/*.parquet'   WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - supplier - COPY INTO');
 
 select top 10
     l_orderkey,
@@ -333,7 +333,7 @@ option (label = 'Lab Prep Query - Clustering: Enabled - Bad');
 -- CELL ********************
 
 TRUNCATE TABLE dbo.lineitem;
-COPY INTO dbo.lineitem FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/sampledata/lineitem/*.parquet' WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - lineitem - COPY INTO');
+COPY INTO dbo.lineitem FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/tpch_sf100/lineitem/*.parquet' WITH (FILE_TYPE = 'PARQUET') OPTION (LABEL = 'Load - lineitem - COPY INTO');
 
 -- METADATA ********************
 
@@ -364,7 +364,7 @@ TRUNCATE TABLE dbo.lineitem_openrowset;
 INSERT INTO dbo.lineitem_openrowset
 SELECT
     *
-FROM OPENROWSET(BULK 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/sampledata/lineitem/*.parquet')
+FROM OPENROWSET(BULK 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/tpch_sf100/lineitem/*.parquet')
 OPTION (LABEL = 'Load - lineitem - OPENROWSET');
 
 -- METADATA ********************
@@ -740,7 +740,7 @@ CREATE TABLE dbo.nation
         n_comment           VARCHAR(152)    NOT NULL
     );
 
-COPY INTO dbo.nation FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/sampledata/nation/*.parquet'     WITH (FILE_TYPE = 'PARQUET');
+COPY INTO dbo.nation FROM 'https://onelake.dfs.fabric.microsoft.com/3f101a1f-34ab-4b8c-8249-32d5b6b9dfc3/bfa3b424-c643-4ac3-91f8-c01e560e5ce9/Files/tpch_sf100/nation/*.parquet'     WITH (FILE_TYPE = 'PARQUET');
 */
 
 -- METADATA ********************

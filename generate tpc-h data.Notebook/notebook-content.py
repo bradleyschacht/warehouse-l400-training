@@ -50,28 +50,8 @@
 from lakebench.datagen import TPCHDataGenerator
 
 datagen = TPCHDataGenerator(
-    scale_factor=1,
-    target_folder_uri='/lakehouse/default/Files/tpch_sf1'
-)
-datagen.run()
-
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "jupyter_python"
-# META }
-
-# CELL ********************
-
-# Generate TPC-DS data into the attached Lakehouse's Files area
-
-from lakebench.datagen import TPCDSDataGenerator
-
-datagen = TPCDSDataGenerator(
-    scale_factor=1,
-    target_folder_uri='/lakehouse/default/Files/tpcds_sf1'
+    scale_factor=100,
+    target_folder_uri='/lakehouse/default/Files/tpch_sf100'
 )
 datagen.run()
 
